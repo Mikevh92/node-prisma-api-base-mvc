@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model estudiante {
+  id String @id @default(uuid())
+  name String? @db.VarChar(255)
+  matricula String? @db.VarChar(255)
+  activo Int? @default(1)
+}
